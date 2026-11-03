@@ -67,6 +67,12 @@ export const ReportProblemPage = () => {
       return;
     }
 
+    // MANDATORY IMAGE CHECK
+    if (!images || images.length === 0) {
+      setError('Photo / Evidence upload is mandatory. Please upload an image before submitting.');
+      return;
+    }
+
     setSubmitting(true);
 
     try {
@@ -173,7 +179,7 @@ export const ReportProblemPage = () => {
           {/* Photographic Evidence */}
           <div>
             <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wider">
-              Photo / Evidence Upload
+              Photo / Evidence Upload *
             </label>
             <ImageUploader onImagesChange={setImages} />
           </div>
